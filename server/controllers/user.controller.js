@@ -3,7 +3,7 @@ import User from "../models/user.model.js";
 export const getUsersForSidebar = async (req, res) => {
   try {
 
-    const { _id: loggedInUserId } = req.user
+    const { _id: loggedInUserId } = req.user;
 
     const allUsers = await User.find({ _id: { $ne: loggedInUserId } }).select("-password");
 

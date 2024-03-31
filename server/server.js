@@ -24,6 +24,6 @@ app.get("/", (req, res) => res.send("Hello World!"));
 
 
 app.listen(PORT, () => {
-  ConnectToMongoDB()
-  console.log(`server running on port ${PORT}`)
-})
+  ConnectToMongoDB();
+  console.log(`server running on port ${PORT}`);
+});

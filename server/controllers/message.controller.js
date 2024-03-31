@@ -24,7 +24,7 @@ export async function sendMessage(req, res) {
     });
 
     if (message) {
-      conversation.messages.push(newMessage._id)
+      conversation.messages.push(newMessage._id);
     }
 
     // SOCKET FUNCTIONALITY WILL GO HERE

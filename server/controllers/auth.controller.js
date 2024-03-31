@@ -12,7 +12,7 @@ export const signupUser = async (req, res) => {
 
     // Hashed Password
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt)
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     const profilePic = `https://avatar.iran.liara.run/public/${gender === "male" ? "boy" : "girl"}?username=${userName}`;
     const newUser = new User({ fullName, userName, password: hashedPassword, gender, profilePic });
@@ -27,7 +27,7 @@ export const signupUser = async (req, res) => {
         fullName: newUser.fullName,
         userName: newUser.userName,
         profilePic: newUser.profilePic
-      })
+      });
     } else {
       res.send(400).json({ error: "Invalid User Data" })
     }
@@ -66,10 +66,10 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = (req, res) => {
   try {
-    res.cookie("jwt", "", { maxAge: 0 })
-    res.status(200).json({ message: "logged out successfully" })
+    res.cookie("jwt", "", { maxAge: 0 });
+    res.status(200).json({ message: "logged out successfully" });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json({ error: "Internal server error" });
   }
 }
